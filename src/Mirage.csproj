@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <!--<RuntimeIdentifier>cosmos</RuntimeIdentifier>-->
+        <Platform>cosmos</Platform>
+        <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
+        <SelfContained>True</SelfContained>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <EnableGDB>False</EnableGDB>
+        <StartCosmosGDB>False</StartCosmosGDB>
+        <DebugEnabled>False</DebugEnabled>
+        <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
+        <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
+        <Launch>VMware</Launch>
+        <Profile>VMware</Profile>
+        <Description>Use VMware Player or Workstation to deploy and debug.</Description>
+        <PxeInterface>192.168.0.8</PxeInterface>
+        <CompressionType>gzip</CompressionType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources/Cantarell.acf" />
+        <EmbeddedResource Include="Resources/CantarellBold.acf" />
+        <EmbeddedResource Include="Resources/CantarellLarge.acf" />
+        <EmbeddedResource Include="Resources/LiberationSerif.acf" />
+        <EmbeddedResource Include="Resources/Serif.acf" />
+        <EmbeddedResource Include="Resources/Segment.acf" />
+        <EmbeddedResource Include="Resources/Pointer.bmp" />
+        <EmbeddedResource Include="Resources/Pointer_Resize.bmp" />
+        <EmbeddedResource Include="Resources/Pointer_Move.bmp" />
+        <EmbeddedResource Include="Resources/Pointer_IBeam.bmp" />
+        <EmbeddedResource Include="Resources/TitleBar_Left.bmp" />
+        <EmbeddedResource Include="Resources/TitleBar_Middle.bmp" />
+        <EmbeddedResource Include="Resources/TitleBar_Right.bmp" />
+        <EmbeddedResource Include="Resources/Close.bmp" />
+        <EmbeddedResource Include="Resources/Close_Hover.bmp" />
+        <EmbeddedResource Include="Resources/Close_Press.bmp" />
+        <EmbeddedResource Include="Resources/Max.bmp" />
+        <EmbeddedResource Include="Resources/Max_Hover.bmp" />
+        <EmbeddedResource Include="Resources/Max_Press.bmp" />
+        <EmbeddedResource Include="Resources/Min.bmp" />
+        <EmbeddedResource Include="Resources/Min_Hover.bmp" />
+        <EmbeddedResource Include="Resources/Min_Press.bmp" />
+        <EmbeddedResource Include="Resources/Question.bmp" />
+        <EmbeddedResource Include="Resources/Wallpaper.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Corner_TopLeft.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Corner_TopRight.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Corner_BottomLeft.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Corner_BottomRight.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Edge_Left.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Edge_Right.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Edge_Top.bmp" />
+        <EmbeddedResource Include="Resources/Shadow_Edge_Bottom.bmp" />
+        <EmbeddedResource Include="Resources/MenuSelectionGradient.bmp" />
+        <EmbeddedResource Include="Resources/ContextMenuSelectionGradient.bmp" />
+        <EmbeddedResource Include="Resources/Button.bmp" />
+        <EmbeddedResource Include="Resources/Button_Press.bmp" />
+        <EmbeddedResource Include="Resources/Power.bmp" />
+        <EmbeddedResource Include="Resources/Computer.bmp" />
+        <EmbeddedResource Include="Resources/DVD.bmp" />
+        <EmbeddedResource Include="Resources/CheckBox.bmp" />
+        <EmbeddedResource Include="Resources/CheckBox_Checked.bmp" />
+        <EmbeddedResource Include="Resources/RadioButton.bmp" />
+        <EmbeddedResource Include="Resources/RadioButton_Checked.bmp" />
+        <EmbeddedResource Include="Resources/Keyboard.bmp" />
+    </ItemGroup>
+
+</Project>
