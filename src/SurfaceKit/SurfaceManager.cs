@@ -7,6 +7,7 @@ using Mirage.GraphicsKit;
 using Mirage.GraphicsKit.Hardware;
 using Mirage.InputKit;
 using Cosmos.System;
+using System;
 
 namespace Mirage.SurfaceKit
 {
@@ -21,13 +22,25 @@ namespace Mirage.SurfaceKit
         public SurfaceManager()
         {
             _display = Display.GetDisplay(640, 480);
-            _display.Clear(Color.Black);
-            _display.DrawString(16, 16, "Preparing your desktop...", GraphicsKit.Fonts.Font.Fallback, Color.White);
+            DisplaySplash();
             MouseManager.ScreenWidth = _display.Width;
             MouseManager.ScreenHeight = _display.Height;
             MouseManager.X = (uint)(_display.Width / 2);
             MouseManager.Y = (uint)(_display.Height / 2);
             Desktop = new DE.Desktop(this);
+        }
+
+        /// <summary>
+        /// Display the splash screen.
+        /// </summary>
+        private void DisplaySplash()
+        {
+            _display.Clear(Color.Black);
+            string message = "Starting Mirage...";
+            int x = (_display.Width - GraphicsKit.Fonts.Font.Fallback.MeasureString(message)) / 2;
+            int y = (_display.Height - GraphicsKit.Fonts.Font.Fallback.Size) / 2;
+            _display.DrawString(x, y, message, GraphicsKit.Fonts.Font.Fallback, Color.White);
+            _display.Update();
         }
 
         /// <summary>
@@ -147,7 +160,7 @@ namespace Mirage.SurfaceKit
                         BeginOperation(new SurfacePressOperation(this, surface));
                     }
 
-                    if (MouseManager.DeltaX > 0 || MouseManager.DeltaY > 0)
+                    if (Math.Abs(MouseManager.DeltaX) > 0 || Math.Abs(MouseManager.DeltaY) > 0)
                     {
                         MouseArgs args = new MouseArgs(MousePointer.X, MousePointer.Y, MouseManager.MouseState);
                         args = args.Localize(surface.X, surface.Y);
